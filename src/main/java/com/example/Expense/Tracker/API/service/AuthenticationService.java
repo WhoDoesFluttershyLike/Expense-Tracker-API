@@ -48,7 +48,6 @@ public class AuthenticationService {
         }
 
         User user = new User();
-        user.setEmail(request.getEmail());
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
@@ -82,7 +81,6 @@ public class AuthenticationService {
         saveUserToken(accessToken, refreshToken, user);
 
         return new AuthenticationResponse(accessToken, refreshToken,"User login was successful");
-
     }
     private void revokeAllTokenByUser(User user) {
         List<Token> validTokens = tokenRepository.findByUserIdAndLoggedOutFalse(user.getId());

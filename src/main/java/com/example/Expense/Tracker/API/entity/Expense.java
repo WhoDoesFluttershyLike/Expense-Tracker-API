@@ -4,7 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -16,5 +17,5 @@ public class Expense {
     private String description;
     private String categoryId;
     private String userId;
-    private LocalDateTime date;
+    private LocalDate date;
 }
