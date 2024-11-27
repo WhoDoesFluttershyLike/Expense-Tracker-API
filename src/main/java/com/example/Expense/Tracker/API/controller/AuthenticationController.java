@@ -48,7 +48,7 @@ public class AuthenticationController {
     public ResponseEntity<Category> addCategory(@RequestBody Category category){
        return ResponseEntity.ok(categoryService.add(category));
     }
-    @PostMapping("/delete-category")
+    @DeleteMapping("/delete-category")
     public ResponseEntity<String> delCategory(@RequestParam String name){
         categoryService.remove(name);
         return ResponseEntity.ok("The category was successfully deleted.");
@@ -59,13 +59,13 @@ public class AuthenticationController {
         return ResponseEntity.ok(expenseService.add(request));
     }
 
-    @PostMapping("/delete-expense")
+    @DeleteMapping("/delete-expense")
     public ResponseEntity<String> delExpense(@RequestParam String id){
         expenseService.remove(id);
         return ResponseEntity.ok("The expense was successfully deleted.");
     }
 
-    @PostMapping("/update-expense")
+    @PutMapping("/update-expense")
     public ResponseEntity<Expense> updateExpense(@RequestParam String id, @RequestBody ExpenseRequest request){
         return ResponseEntity.ok(expenseService.update(id, request));
     }
